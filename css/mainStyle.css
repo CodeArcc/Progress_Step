@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
+:root {
+    --line-border-fill: rgb(15, 19, 228);
+    --line-border-empty: rgb(230, 228, 228);
+    --font-color: black;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Ubuntu", sans-serif;
+    display: flex;
+    margin: 0px;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 350px;
+}
+
+.progress-container::before {
+    content: '';
+    background-color: var(--line-border-empty);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    z-index: -1;
+    transition: 0.4s ease;
+}
+
+.progress {
+    background-color: var(--line-border-fill);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 0%;
+    z-index: -1;
+    transition: 0.4s ease;
+}
+
+.circle {
+    background-color: var(--line-border-empty);
+    color: black;
+    width: 6%;
+    border-radius: 50%;
+    border: var(--line-border-empty) 1px solid;
+    text-align: center;
+    justify-content: center;
+}
+
+.circle.active {
+    border-color: var(--line-border-fill);
+    background-color: var(--line-border-fill);
+    transition: 0.5s ease;
+    color: white;
+}
+
+.btn {
+    margin: 05px;
+    background-color: var(--line-border-fill);
+    color: white;
+    padding: 8px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer
+}
+
+.btn#add {
+    margin-bottom: 50px;
+}
+
+.btn:focus {
+    border: 0;
+    outline: none;
+    transform: scale(0.90);
+}
+
+.btn:disabled {
+    background-color: var(--line-border-empty);
+    color: black;
+    cursor: not-allowed;
+}
